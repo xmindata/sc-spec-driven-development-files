@@ -20,6 +20,9 @@ export const Header: FC = () => (
         <li>
           <a href="/feedback">Feedback</a>
         </li>
+        <li>
+          <a href="/mypearldesign">MyPearlDesign</a>
+        </li>
       </ul>
     </nav>
   </header>

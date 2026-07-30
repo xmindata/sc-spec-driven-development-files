@@ -312,6 +312,26 @@ describe("POST /feedback", () => {
   });
 });
 
+describe("GET /mypearldesign", () => {
+  it("returns 200", async () => {
+    const res = await app.request("/mypearldesign");
+    expect(res.status).toBe(200);
+  });
+
+  it("renders the MyPearlDesign heading", async () => {
+    const res = await app.request("/mypearldesign");
+    const html = await res.text();
+    expect(html).toContain("<h1>MyPearlDesign</h1>");
+  });
+
+  it("includes services and process copy", async () => {
+    const res = await app.request("/mypearldesign");
+    const html = await res.text();
+    expect(html).toContain("What We Build");
+    expect(html).toContain("How We Work");
+  });
+});
+
 describe("404 handling", () => {
   it("returns 404 for an unknown route", async () => {
     const res = await app.request("/nonexistent-route");
