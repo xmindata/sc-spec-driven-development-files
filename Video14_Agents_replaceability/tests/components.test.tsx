@@ -22,6 +22,12 @@ describe("Header", () => {
     const html = Header({}).toString();
     expect(html).toContain("AgentClinic");
   });
+
+  it("links to MyPearlDesign", () => {
+    const html = Header({}).toString();
+    expect(html).toContain('href="/mypearldesign"');
+    expect(html).toContain("MyPearlDesign");
+  });
 });
 
 describe("Footer", () => {

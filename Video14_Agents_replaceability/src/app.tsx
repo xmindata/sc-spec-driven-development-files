@@ -10,6 +10,7 @@ import { therapiesRouter } from "./routes/therapies";
 import { appointmentsRouter } from "./routes/appointments";
 import { dashboardRouter } from "./routes/dashboard";
 import { feedbackRouter } from "./routes/feedback";
+import { myPearlDesignRouter } from "./routes/mypearldesign";
 import { logger } from "./middleware/logger";
 
 export function createApp(db: Database.Database) {
@@ -25,6 +26,7 @@ export function createApp(db: Database.Database) {
   app.route("/therapies", therapiesRouter(db));
   app.route("/dashboard", dashboardRouter(db));
   app.route("/feedback", feedbackRouter(db));
+  app.route("/mypearldesign", myPearlDesignRouter());
 
   app.notFound((c) => c.html(<NotFound />, 404));
   app.onError((_err, c) => c.html(<ServerError />, 500));
